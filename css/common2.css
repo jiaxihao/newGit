@@ -1,0 +1,249 @@
+*{
+	margin:0;
+	padding: 0;
+}
+html{
+	height:fit-content;
+	
+}
+body{
+	font-size:20px;
+	background-color:white;
+	overflow-x:hidden; 
+}
+img{
+	display:inline-block;
+}
+#beian{
+	color:#ff6700;
+	width:100%;
+	background-color:rgba(255,255,255,0.7);
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.left{
+	display:inline-block;
+}
+.message_border{
+	background-color:rgba(255,255,255,0);
+	width: fit-content;
+	margin:0 auto;
+	margin-top:120px;
+	transition-duration: 0.2s;
+}
+.left{
+	display:inline-block;
+}
+.left_center{
+	right:0;
+	margin-right: auto;
+	margin-left: auto;
+}
+#index_title{
+	padding: 10px 0;
+	height:20px;
+	font-size:15px;
+	background-color: rgba(255,255,255,0.7);
+	margin-bottom: 15px;
+}
+#leftimg{
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	border-radius: 50%;
+	margin:0 10px;
+	float:left;
+}
+.leftdiv{
+	display: inline;
+	color:#ff6802;
+	font-weight: bold;
+	float:left;
+}
+#index_title span{
+	color: black;
+	margin:0 10px;
+}
+.right_hide{
+	display: none;
+}
+#index_title_right{
+	float: right;
+	height: 20px;
+	width: 100px;
+	margin-right: 10px;
+	padding: 2.5px 0;
+}
+#index_title_right img{
+	display: inline-block;
+	width:20px;
+	height:20px;
+}
+#index_title_right a{
+	color:#ff6802;
+	display: inline-block;
+	height: 20px;
+	width: 75px;
+	float: right;
+}
+#message_main_content{
+	transition-duration: 0.5s;
+}
+a{
+	user-select:none;
+	text-decoration: none;
+	width: inherit;
+	height: inherit;
+	display:-webkit-flex;
+  	display:-o-flex;
+  	display:-moz-flex;
+  	display: flex;
+	-webkit-justify-content:center;
+	-o-justify-content:center;
+	-moz-justify-content:center;
+	justify-content:center;
+	-webkit-align-items:center;
+	-moz-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+a:hover{
+	color: black;
+}
+a:visited{
+	color:black;
+}
+a:link{
+	color:black;
+}
+a:active{
+	color:black;
+}
+ul{
+	list-style: none;
+}
+#backgroundImg{
+	position: fixed;
+	top:0;
+	left: 0;
+	width: inherit;
+	height: 100%; 
+}
+.back_content{
+	position:fixed;
+	top: 0;
+	left: 0;
+	height:100%;
+	width:inherit;
+	background: -webkit-radial-gradient(top,rgba(255,255,255,0.02),#d8d8d8);
+  	background: -o-radial-gradient(top,rgba(255,255,255,0.02),#d8d8d8);
+  	background: -moz-radial-gradient(top,rgba(255,255,255,0.02),#d8d8d8);
+  	background: radial-gradient(top,rgba(255,255,255,0.02),#d8d8d8);
+  	z-index:-1;
+}
+#right{
+	height:15px;
+	width: 15px;
+	float: right;
+	transform: rotate(180deg);
+}
+.right{
+	float:right;
+	width: 300px;
+	display: inline-block;
+    margin-left: 40px;
+}
+.right_hide{
+	display: none;
+}
+#right_index_title{
+	padding: 7.5px 0;
+	height:25px;
+	font-size:15px;
+	background-color: rgba(255,255,255,0.9);
+	margin-bottom: 15px;
+}
+#right_index_title img{
+	margin:0 10px;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	border-radius: 50%;
+}
+#right_index_title div{
+	display: inline-block;
+	position: absolute;
+	vertical-align:middle;
+	padding:2.5px 0;
+	height: 20px;
+	color:#ff6802;
+	font-weight: bold;
+}
+#right_index_title div span{
+	color:rgba(0,0,0,0.5);
+	font-size: 10px;
+	font-family: 楷体;
+	letter-spacing:2px;
+}
+#right_admin_div{
+	margin-top: 40px;
+	position: relative;
+	background-color: rgba(255,255,255,0.5);
+	text-align: center;
+	padding: 10px;
+}
+#admin_icon{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	border:2px solid white;
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+	position: absolute;
+	top:-25px;
+	left: 0;
+	right: 0;
+	margin-right: auto;
+	margin-left: auto;
+	cursor: pointer;
+}
+#admin_sign{
+	font-size: 14px;
+	height: 15px;
+	width: auto;
+	margin:27px auto 0 auto;
+	color:rgb(113,113,113);
+}
+#websit_info{
+	height:80px;
+	padding:10px 10px;
+}
+#websit_info div{
+	display: inline-block;
+	border-bottom: 0.52px solid rgb(113,113,113);
+	width: 60px;
+	height: 60px;
+	margin:10px 10px;
+}
+#websit_today{
+	color:#ff6700;
+}
+.info_headline{
+	font-size: 15px;
+}
+.info_holder{
+	margin:0 auto;
+	font-size: 20px;
+	overflow: hidden;
+}
+#weather{
+	text-align: center;
+	margin-top: 20px;
+	height: 50px;
+	overflow:hidden;
+}
+#weather iframe{
+	width:220px;
+	height:30px;
+	overflow:hidden;
+}

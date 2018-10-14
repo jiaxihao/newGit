@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/addArticle.css">
+	<script type="text/javascript" src="js/jQuery.main.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.metadata.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/addArticle.js"></script>
+</head>
+<body>
+	<div class="addArticle_dialog">
+		<div id="options_detail"></div>
+		<div class="addArticle_dialog_headline">
+			编辑文章
+		</div>
+		<div class="addArticle_dialog_holder">
+		<form id="addArticle_form">
+			<div class="addArticle_picture">
+					<span>配图(可选)小于50KB</span>
+					<input type="file" name="picture" class="addArticle_picture_inputer">
+					<div class="addArticle_picture_show">
+					</div>
+					<button type="button" class="cancelUploadPicture">取消上传</button>
+			</div>
+			<div class="addArticle_content_inputer">
+				<div class="addArticle_dialog_headline_show"
+				contenteditable="true">输入标题</div>
+				<label for="addArticle_content_inputer_preshow"  class="addArticle_content_inputer_options"><span id="addB"></span><span id="addI"></span><span id="addU"></span><span id="addHs"></span><span id="addHt"></span><span id="addHf"></span><span id="addFs"></span><span id="addBc"></span><span id="addC"></span><span id="addBr"></span><span id="options_hide"  style="border-right:1px solid rgba(0,0,0,0.2);"></span></label>
+				<div id="addArticle_content_inputer_preshow" class="addArticle_content_inputer_preshow" contenteditable="true"><p>在此输入内容</p></div>
+				</div>
+				<div class="addArticle_buttons">
+				<input type="submit" value="发表"><input type="button" id="addArticle_dialog_concel" value="取消">
+				</div>
+		</form>
+		</div>
+	</div>
+	<div class="addArticle_dialog_exit">
+		<div class="addArticle_dialog_exit_headline">确定取消吗？</div>
+		<input type="button" value="确定" id="addArticle_dialog_exit_submit"><input type="button" value="取消"  id="addArticle_dialog_exit_cancel">
+		<div class="saveArticle">保存副本</div>
+	</div>
+</body>
+</html>

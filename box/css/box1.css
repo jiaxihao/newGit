@@ -1,0 +1,102 @@
+*{
+	margin:0;
+	padding: 0;
+	_border:1px solid red;
+}
+body{
+	font-size: 15px;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+.contentBox2{
+	width:500px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	margin:0 auto;
+	border:1px solid gray;
+}
+.contentBox2Headline{
+	height:30px;
+	padding:0 10px;
+}
+.contentBox2Headline div{
+	font-weight: bold;
+	height:inherit;
+	width:60px;
+	display: inline-block;
+	line-height: 30px;
+}
+.contentBox2Headline a{
+	float: right;
+	font-size: 12px;
+	line-height: 30px;
+	color:red;
+}
+.contentBox2Headline a:hover{
+	text-decoration: underline;
+}
+.contentBox2Ul{
+	height: inherit;
+	widows:inherit;
+}
+.contentBox2Ul li{
+	padding:10px;
+	width:inherit;
+	height:60px;
+	border:1px solid gray;
+	margin:20px 20px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.2);
+	cursor: pointer;
+}
+.contentBox2Ul li:hover{
+	box-shadow: 0 0 20px rgba(255,255,255,0.2);
+	background-color: red;
+	transition-duration: 0.5s;
+}
+.contentBox2UlLiLeft{
+	display: inline-block;
+	height:100%;
+	width:370px;
+	display: inline-block;
+}
+.contentBox2UlLiLeft div{
+	padding-left:10px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.liTop{
+	font-weight: bold;
+	color:black;
+	font-size: 0.8em;
+	height:25%;
+}
+.liMid{
+	font-size: 0.8em;
+	height:50%;
+}
+.liBot{
+	font-size:0.8em;
+	color: gray;
+	height:25%;
+	text-align: right;
+}
+.contentBox2UlLiRight{
+	display: inline-block;
+	height:60px;
+	width: 58px;
+	float: right;
+}
+.contentBox2UlLiRight div{
+	height:50px;
+	width:50px;
+	border:1px solid gray;
+	margin-top: 4px;
+}
+.contentBox2UlLiRight div img{
+	height:48px;
+	width:48px;
+	margin:1px;
+}

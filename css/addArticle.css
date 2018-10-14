@@ -1,0 +1,329 @@
+.addArticle_dialog{
+	width: 800px;
+	position:absolute;
+	top:10px;
+	left:50%;
+	margin-left:-400px;
+	padding:10px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	margin-bottom: 60px;
+	user-select:none;
+	z-index:100000;
+}
+#options_detail{
+	position: absolute;
+	font-size: 12px;
+	top:200px;
+	left: 200px;
+	background-color: white;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+	display:none;
+	padding:3px;
+	color:#ff6700;
+	transition-duration: 0.1s;
+	z-index: 100;
+	border:1px solid #ff6700;
+}
+.options_options{
+	position: absolute;
+	font-size: 12px;
+	width:33px;
+	top:1000px;
+	left:1000px;
+	background-color: white;
+	display:none;
+	padding:3px;
+	color:#ff6700;
+	transition-duration: 0.1s;
+	z-index: 90;
+	border:1px solid #ff6700;
+}
+.options_options>label>div{
+	padding:4.5px 0;
+	height:22px;
+}
+.addBc_rgb{
+	display:inline-block;
+	width:94px;
+	margin:0;
+}
+.addC_rgb{
+	display:inline-block;
+	width:94px;
+	margin:0;
+}
+.show_color{
+	display: inline-block;
+	height:20px;
+	width:130px;
+	color:black;
+	margin-bottom: 10px;
+	padding-top:10px!important;
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+.rgb_val{
+	display:inline-block;
+	width:30px;
+	height:20px;
+	border:1px solid rgba(0,0,0,0.5);
+	text-align: center;
+	margin:0 5px;
+	float:right;
+}
+.options_options>label>span{
+	display: inline-block;
+	width: 33px;
+	text-align: center;
+	cursor: pointer;
+}
+.options_options>label>span:hover{
+	background-color: #ff6700;
+	color:white;
+}
+.rgb_detail{
+	position: absolute;
+	left:-40px;
+	color:black;
+}
+.addArticle_dialog_headline{
+	width: 100%;
+	height:40px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	padding-top:10px;
+	border-top: 2px solid #ff6700;
+	background-color: rgb(210,210,210);
+	position:absolute;
+	top:0;
+	left:0;
+	cursor: move;
+}
+.addArticle_dialog_holder{
+	margin-top: 50px;
+	width:784px;
+	margin-bottom: 60px;
+	box-shadow: 0 0px 5px rgba(0,0,0,0.3);
+	padding:8px 8px;
+}
+.addArticle_picture{
+	display:none;
+	margin-top: 10px;
+	padding:4px 0;
+}
+.addArticle_picture>input{
+	background-color:white;
+}
+.addArticle_picture>span{
+	padding:2px 4px;
+	font-size: 13px;
+	height:19px;
+}
+.addArticle_picture_show{
+	margin:10px 0;
+	height:fit-content;
+}
+.addArticle_picture_show img{
+	border:1px solid rgba(0,0,0,0.2);
+	margin:0;
+	padding:0;
+}
+.cancelUploadPicture{
+	display:none;
+	border:1px solid #ff6700;
+	background-color:white;
+	color:#ff6700;
+	padding:0 10px;
+	line-height:25px;
+	cursor:pointer;
+}
+.cancelUploadPicture:hover{
+	background-color: #ff6700;
+	border:1px solid #ff6500;
+	color:white;
+}
+.addArticle_content_inputer{
+	width:100%;
+	display: inline-block;
+	overflow: hidden;
+}
+.addArticle_content_inputer_options{
+	display:inline-block;
+	border-top:1px solid rgba(0,0,0,0.2);
+	border-bottom:1px solid rgba(0,0,0,0.2);
+	text-align: center;
+	height:40px;
+	transition-duration: 0.2s;
+}
+.addArticle_content_inputer_options_hidden{
+	margin-left: -410px;
+}
+.addArticle_content_inputer_options>span{
+	display: inline-block;
+	border-left:1px solid rgba(0,0,0,0.2);
+	margin:0 auto;
+	height:40px;
+	width:40px;
+	cursor:pointer;
+	user-select:none;
+	transition-duration: 0.2s;
+}
+.addArticle_content_inputer_options>span>img{
+	width: 70%;
+	height:70%;
+	margin:6px 6px;
+	transition-duration: 0.2s;
+}
+.addArticle_content_inputer_options>span:hover{
+	background-color: #ff6700!important;
+}
+.addArticle_content_inputer_options>span:active{
+	background-color: #ff1000!important;
+}
+.addArticle_content_inputer_options_spans_actived{
+	animation: spans_actived 1s linear infinite;
+}
+@keyframes spans_actived{
+	0%{
+		background-color:#ff6700;
+	}
+	50%{
+		background-color:#ff9000;
+	}
+	100%{
+		background-color:#ff6700;
+	}
+}
+#options_hide{
+	background-color: rgba(0,0,0,0.3);
+}
+.options_hide_rotate{
+	transform:rotate(180deg);
+}
+.addArticle_dialog_headline_show{
+	font-size: 30px;
+	color:#ff6700;
+	text-shadow: 1px 1px 10px rgba(0,0,0,0.2);
+	font-weight: bold;
+	margin-bottom: 10px;
+	height:40px;
+}
+.addArticle_content_inputer_preshow{
+	height:550px;
+		font-size: 13px;
+	transition-duration: 0.2s;
+	padding:0 10px;
+	overflow: auto;
+}
+.addArticle_content_inputer_preshow div{
+	font-size: 15px;
+	text-indent: 2em;
+	margin:0 10px;
+	padding:2px 0;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+.addArticle_content_inputer_preshow p{
+	font-size: 15px;
+	text-indent: 2em;
+	margin:0 10px;
+	padding:2px 0;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+.addArticle_content_inputer_preshow h2{
+	text-indent: 2em;
+	margin:0 10px;
+	padding:2px 0;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+.addArticle_content_inputer_preshow h3{
+	text-indent: 2em;
+	margin:0 10px;
+	padding:2px 0;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+.addArticle_content_inputer_preshow h4{
+	text-indent: 2em;
+	margin:0 10px;
+	padding:2px 0;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+.addArticle_buttons{
+	width: 100%;
+	height:30px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	padding:10px 0;
+	text-align: center;
+}
+.addArticle_buttons>input{
+	display: inline-block;
+	width: 100px;
+	height:30px;
+	font-size: 17px;
+	font-weight: bold;
+	border:1px solid rgba(0,0,0,0.1);
+	background-color: rgba(0,0,0,0.2);
+	margin:0 100px;
+	cursor:pointer;
+	transition-duration: 0.2s;
+}
+.addArticle_buttons>input:hover{
+	background-color: #ff6700;
+	border:1px solid #ff6500;
+	color:white;
+}
+.addArticle_dialog_exit{
+	position:fixed;
+	width: 300px;
+	height:150px;
+	top:50%;
+	left:50%;
+	margin-left:-150px;
+	margin-top: -100px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	text-align: center;
+	background-color: white;
+	display:none;
+}
+.addArticle_dialog_exit_headline{
+	width: inherit;
+	height:30px;
+	font-size: 16px;
+	background-color: rgba(0,0,0,0.2);
+	border-top: 2px solid #ff6700;
+	padding-top:7px;
+	color:#ff6700;
+}
+.addArticle_dialog_exit>input{
+	border:1px solid rgba(0,0,0,0.1);
+	background-color: rgba(0,0,0,0.2);
+	padding:4px 30px;
+	margin: 40px 20px 20px 20px;
+	cursor:pointer;
+	transition-duration: 0.2s;
+}
+.addArticle_dialog_exit>input:hover{
+	background-color: #ff6700;
+	color:white;
+}
+.saveArticle{
+	height:8px;
+	cursor:pointer;
+	transition-duration: 0.2s;
+	text-align: right;
+	padding-right: 10px;
+	color:blue;
+	text-decoration:underline;
+	padding-top: 3px;
+	font-size:15px;
+}
+.saveArticle:hover{
+	color:#ff6700;
+}

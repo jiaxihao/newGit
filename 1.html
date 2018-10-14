@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MHZ出错了!</title>
+</head>
+<style>
+	.chatRoomdcontent{
+    padding:20px;
+    height:647px;
+    width:100%;
+    box-sizing: border-box;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-top:0;
+}
+.chatRoomdcontent>div{
+  display:inline-block;
+  background-color: rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  float:left;
+}
+.chatRoom_dialog{
+  width:780px;
+  height:607px;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding:10px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.chatRoom_info{
+  width:300px;
+  height:607px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+.chat_messages{
+  height:380px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background-color: rgba(255,255,255,0.5);
+  max-height: 380px;
+  overflow-y: scroll;
+}
+.chat_options{
+  height:32px;
+  border:1px solid rgba(0,0,0,0.1);
+  border-top: 0;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.2);
+}
+.chat_inputer_content{
+  height:170px;
+  border:1px solid rgba(0,0,0,0.1);
+  border-top: 0;
+  box-sizing: border-box;
+  background-color: rgba(255,255,255,0.5  );
+}
+.chat_inputer{
+  height:123px;
+  text-align:left;
+  box-sizing: border-box;
+  padding:10px;
+  background-color: rgba(255,255,255,0.5  );
+  font-size: 14px;
+  max-height: 123px;
+  overflow-y: scroll;
+}
+.chat_inputer:focus{
+  border:1px solid #ff6700;
+  box-shadow: 0 0 10px rgba(255,103,0,0.2);
+}
+.chat_inputer_content>button{
+  border: 0;
+  height:25px;
+  width:60px;
+  color:#ff6700;
+  float:right;
+  background-color: white;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border:1px solid rgba(255,103,0,0.2);
+}
+.chat_inputer_content>button:hover{
+  background-color: rgba(255,103,0,0.4);
+  /* color:white; */
+  font-weight: bold;
+  transition-duration: 0.2s;
+}
+.chatRoom_info{
+  padding:10px;
+}
+.chatRoom_info_content{
+  height:584px;
+}
+.chat_notice{
+  height:250px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+.chat_notice_headline,.chat_Users_headline{
+  height:25px;
+  line-height: 25px;
+  color:#ff6700;
+  font-size: 12px;
+  border:1px solid rgba(0,0,0,0.1);
+  border-left:0;
+  border-right: 0;
+  background-color: rgba(255,255,255,0.4);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-align: left;
+  padding-left: 20px;
+}
+.chat_notice_content{
+  height:225px;
+  background-color: rgba(255,255,255,0.7);
+  overflow-y: scroll;
+}
+.chat_Users{
+  height:331px;
+  border:1px solid rgba(0,0,0,0.1);
+  border-top: 0;
+}
+.chat_Users_content{
+  height:306px;
+  background-color: rgba(255,255,255,0.7);
+  overflow-y: scroll;
+}
+.chat_messages_ul,.chat_notice_content_ul,.chat_Users_content_ul{
+  padding:15px 0;
+}
+.chats{
+  padding:5px 10px;
+}
+.chats_icon{
+  height:46px;
+  width: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 7px;
+  box-sizing: border-box;
+  border: 2px solid #ff6700;
+  display: inline-block;
+  float: left;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+.chats_icon>img{
+  height:100%;
+  width:100%
+}
+.chats_info{
+  display: inline-block;
+  margin-left: 20px;
+  border:1px solid rgba(0,0,0,0.1);
+  background-color: rgba(255,255,255,0.5);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  padding:5px 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  max-width: 645px;
+}
+.chats_info_content{
+  max-width: 100%;
+}
+.chat_user_info{
+  font-size: 13px;
+}
+.chat_user_info>span{
+  display: inline-block;
+  height:17px;
+  padding-right:30px;
+  line-height: 17px;
+}
+.chats_name{
+  color:#ff6700;
+}
+.chats_time{
+  color:gray;
+}
+.chats_others{
+  color:red;
+}
+.chat_notice_content_ul>li{
+  margin-bottom: 10px;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.chat_notice_content_ul>li:last-child{
+  border-bottom:0;
+}
+.chat_notice_content_li_headline{
+  line-height: 17px;
+  font-size: 14px;
+  color:#ff6700;
+  text-align: center;
+  background-color: rgba(255,255,255,0.2);
+}
+.chat_notice_content_li_content{
+  background-color: rgba(255,255,255,0.8);
+  text-indent:  2em;
+  font-size: 13px;
+  padding:5px;
+}
+.chat_notice_content_li_time{
+  font-size: 13px;
+  text-align: right;
+  color:gray;
+}
+.chat_Users_lis{
+  margin:0 5px 5px 5px;
+  padding:5px 10px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.5);
+  height:48px;
+}
+.chat_Users_lis:last-child{
+  border-bottom: 0;
+}
+.chat_Users_info{
+  margin-left:60px;
+}
+.chats_users_sign{
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.sign_time{
+  font-size: 10px;
+  color:gray;
+}
+.status{
+	text-align: center;
+	font-size: 14px;
+	color:gray;
+	padding:5px 10px;
+}
+.status span{
+	padding:2px 10px ;
+	background-color: rgba(0,0,0,0.1);
+	
+}
+
+</style>
+<body>
+	<div class="chatRoomdcontent">
+			      <div class="chatRoom_dialog">
+			        <div style="overflow:hidden;">
+			          <div class="chatRoom_dialog_content">
+			            <div class="chat_messages">
+			              <ul class="chat_messages_ul">
+			               <li class="status">
+								<span>time</span><span>Has logined</span>
+			               </li>
+			               <li class="chats">
+			                    <div class="chats_icon" style="float:right">
+			                      <img src="icons/loading.png" alt="">
+			                    </div>
+			                    <div class="chats_info">
+			                      <div class="chat_user_info" style="text-align: right">
+			                        <span class="chats_name">name</span><span class="chats_time">time</span><span class="chats_others">@somebody</span>
+			                      </div>
+			                      <div class="chats_info_content">
+			                        这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容  这里是发言内容
+			                      </div>
+			                    </div>
+			                </li>
+			              </ul>
+			            </div>
+			            <div class="chat_options">
+			
+			            </div>
+			            <div class="chat_inputer_content">
+			              <div class="chat_inputer" contenteditable="true">
+			
+			              </div>
+			              <button type="button" name="send" id="sendButton">发送</button>
+			            </div>
+			          </div>
+			        </div>
+			
+			      </div>
+			      <div class="chatRoom_info">
+			        <div style="overflow:hidden;">
+			          <div class="chatRoom_info_content">
+			            <div class="chat_notice">
+			              <div class="chat_notice_headline">
+			                公告
+			              </div>
+			              <div class="chat_notice_content">
+			                <ul class="chat_notice_content_ul">
+			                  <li>
+			                    <div class="chat_notice_content_li_headline">
+			                      公告标题
+			                    </div>
+			                    <div class="chat_notice_content_li_content">
+			                      这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容
+			                    </div>
+			                    <div class="chat_notice_content_li_time">
+			                      发布日期:<span>2018-9-25</span>
+			                    </div>
+			                  </li>
+			                  <li>
+			                    <div class="chat_notice_content_li_headline">
+			                      公告标题
+			                    </div>
+			                    <div class="chat_notice_content_li_content">
+			                      这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容
+			                    </div>
+			                    <div class="chat_notice_content_li_time">
+			                      发布日期:<span>2018-9-25</span>
+			                    </div>
+			                  </li>
+			                  <li>
+			                    <div class="chat_notice_content_li_headline">
+			                      公告标题
+			                    </div>
+			                    <div class="chat_notice_content_li_content">
+			                      这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容这里是公告内容
+			                    </div>
+			                    <div class="chat_notice_content_li_time">
+			                      发布日期:<span>2018-9-25</span>
+			                    </div>
+			                  </li>
+			                </ul>
+			              </div>
+			            </div>
+			            <div class="chat_Users">
+			              <div class="chat_Users_headline">
+			                在线人数：(<span>5</span>)人
+			              </div>
+			              <div class="chat_Users_content">
+			                <ul class="chat_Users_content_ul">
+			                  <li class="chat_Users_lis">
+			                    <div class="chats_icon">
+			                      <img src="icons/loading.png" alt="">
+			                    </div>
+			                    <div class="chat_Users_info">
+			                      <div class="chat_user_info">
+			                        <span class="chats_name">name</span><span  class="sign_time">2018-9-25</span>
+			                      </div>
+			                      <div title="这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名" class="chats_users_sign">
+			                        这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名
+			                      </div>
+			                    </div>
+			                  </li>
+			                  <li class="chat_Users_lis">
+			                    <div class="chats_icon">
+			                      <img src="icons/loading.png" alt="">
+			                    </div>
+			                    <div class="chat_Users_info">
+			                      <div class="chat_user_info">
+			                        <span class="chats_name">name</span><span  class="sign_time">2018-9-25</span>
+			                      </div>
+			                      <div title="这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名" class="chats_users_sign">
+			                        这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名
+			                      </div>
+			                    </div>
+			                  </li>
+			                  <li class="chat_Users_lis">
+			                    <div class="chats_icon">
+			                      <img src="icons/loading.png" alt="">
+			                    </div>
+			                    <div class="chat_Users_info">
+			                      <div class="chat_user_info">
+			                        <span class="chats_name">name</span><span  class="sign_time">2018-9-25</span>
+			                      </div>
+			                      <div title="这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名" class="chats_users_sign">
+			                        这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名
+			                      </div>
+			                    </div>
+			                  </li>
+			                  <li class="chat_Users_lis">
+			                    <div class="chats_icon">
+			                      <img src="icons/loading.png" alt="">
+			                    </div>
+			                    <div class="chat_Users_info">
+			                      <div class="chat_user_info">
+			                        <span class="chats_name">name</span><span  class="sign_time">2018-9-25</span>
+			                      </div>
+			                      <div title="这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名" class="chats_users_sign">
+			                        这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名
+			                      </div>
+			                    </div>
+			                  </li>
+			                  <li class="chat_Users_lis">
+			                    <div class="chats_icon">
+			                      <img src="icons/loading.png" alt="">
+			                    </div>
+			                    <div class="chat_Users_info">
+			                      <div class="chat_user_info">
+			                        <span class="chats_name">name</span><span  class="sign_time">2018-9-25</span>
+			                      </div>
+			                      <div title="这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名" class="chats_users_sign">
+			                        这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名这里是用户签名
+			                      </div>
+			                    </div>
+			                  </li>
+			                </ul>
+			              </div>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+    </div>
+</body>
+</html>

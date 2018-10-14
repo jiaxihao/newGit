@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>todoList</title>
+	<link rel="stylesheet" href="css/todoList.css">
+	<script src="js/vue_main.js"></script>
+</head>
+<body>
+	<div id="todo-list">
+		<h1 v-text="title"></h1>
+		<input class="tdoListInput" type="text" placeholder="Enter a new event.Press 'Enter' to push" v-model="newTodo" v-on:keyup.enter="addtodo(newTodo)">
+		<ul>
+			<todo-list
+				v-for="(item,index)  in items" 
+				v-bind:class={todoListDoneClass:item.isDone}
+				v-bind:item="item"
+				:key="index"
+				v-bind:index = "index"
+				@mouse = "mouseOnList"
+				@toggle = "toggleFinish"
+			></todo-list>
+		</ul>
+	</div>
+</body>
+<script>
+Vue.component('todo-list',{
+		props:["item","index"],
+		template:'<li v-on:click="clickToggle(item)" @mouseover = "mouse(item)" @mouseout="mouse(item)">{{item.todo}} <div class="buttons"><button v-show="item.isMouseOn">Finish</button></div><div ><span class="todoTime">{{item.addTime}}</span><span class="doneTime">{{item.doneTime}}</span></div></li>',
+		methods:{
+			clickToggle(item){
+				this.$emit("toggle",item);
+			},
+			mouse(item){
+				this.$emit("mouse",item);
+			}
+		}
+})
+new Vue({
+
+	el:"#todo-list",
+	data:function(){
+		return {
+			done:"Done at",
+			title:"TODO LIST",
+			newTodo:'',
+			items:localStorage.getItem("item")||[]
+		}
+	},
+	methods:{
+		toggleFinish:function(item){
+			item.isDone = !item.isDone;	
+			if(item.isDone)
+			{
+				var now  = new Date();
+				item.doneTime =now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()
+			}else{
+				item.doneTime="Not Finished"
+			}
+		},
+		addtodo:function(value){
+			if(value!="")
+			{
+				var now  = new Date();
+				this.newTodo="";
+				this.items.push({
+					id:this.items.length,
+					todo:value,
+					isDone:false,
+					addTime:now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes(),
+					doneTime:"Not Finished",
+					isMouseOn:false
+				})
+			}
+		},
+		mouseOnList(item){
+			item.isMouseOn = !item.isMouseOn
+		},
+		fetch(){
+			return JSON.parse(window.localStorage.getItems("items")||'[]');
+		}
+	},
+	watch:{
+		items:{
+			handler:function(){
+				if(window.localStorage)
+				{
+					localStorage.setItem("items",JSON.stringify(this.items));
+				}else{
+					Cookie.write("menuTitle",this.items);
+				}
+			},
+			deep:true
+		},
+		load(){
+			this.items = fetch();
+		}
+	}
+})
+</script>
+</html>

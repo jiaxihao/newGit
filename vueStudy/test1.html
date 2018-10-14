@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/vue_main.js"></script>
+	<link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+	<div id="app-8">
+		<ol>
+			<todo-item1
+				v-for="item1 in groceryList"
+				v-bind:todo1="item1"
+				v-bind:key = "item1.id">
+			</todo-item1>
+		</ ol>
+	</div>
+	<div id="todo-list-example">
+	  <form v-on:submit.prevent="addNewTodo">
+	    <label for="new-todo">Add a todo</label>
+	    <input
+	      v-model="newTodoText"
+	      id="new-todo"
+	      placeholder="E.g. Feed the cat"
+	    >
+	    <button>Add</button>
+	  </form>
+	  <ul>
+	    <li
+	      is="todo-item"
+	      v-for="(todo, index) in todos"
+	      v-bind:key="todo.id"
+	      v-bind:title="todo.title"
+	      v-on:remove="todos.splice(index, 1)"
+	    ></li>
+	  </ul>
+	</div>
+	<div id="app-9">
+		<input v-model="message" placeholder="edit me" >
+		<p>Message is: {{ message }}</p>
+		<span>Multiline message is:</span>
+		<p style="white-space: pre-line;">{{ message }}</p>
+		<br>
+		<textarea v-model="message" placeholder="add multiple lines"></textarea><br>
+		<input type="checkbox" id="checkbox" v-model="checked">
+		<label for="checkbox">{{ checked }}</label>
+	</div>
+	<div id='example-3'>
+	  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+	  <label for="jack">Jack</label>
+	  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+	  <label for="john">John</label>
+	  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+	  <label for="mike">Mike</label>
+	  <br>
+	  <span>Checked names: {{ checkedNames }}</span>
+	</div><div id="example-4">
+	  <input type="radio" id="one" value="One" v-model="picked">
+	  <label for="one">One</label>
+	  <br>
+	  <input type="radio" id="two" value="Two" v-model="picked">
+	  <label for="two">Two</label>
+	  <br>
+	  <span>Picked: {{ picked }}</span>
+	</div>
+	<div id="example-5">
+	  <select v-model="selected">
+	    <option disabled value="">请选择</option>
+	    <option>A</option>
+	    <option>B</option>
+	    <option>C</option>
+	  </select>
+	  <span>Selected: {{ selected }}</span>
+	</div>
+	<div id="example-6">
+	  <select v-model="selected" multiple style="width: 50px;">
+	    <option>A</option>
+	    <option>B</option>
+	    <option>C</option>
+	  </select>
+	  <br>
+	  <span>Selected: {{ selected }}</span>
+	</div>
+	<div id="app-11">
+		<select v-model="selected">
+		  <option v-for="option in options" v-bind:value="option.value">
+		    {{ option.text }}
+		  </option>
+		</select>
+		<span>Selected: {{ selected }}</span>
+		<input type="text" :value="selected" />
+	</div>
+	<!-- <div class="components-demo">
+	  <button-counter></button-counter>
+	</div> -->
+	<div class="components-demo">
+	  <button-counter></button-counter>
+	  <button-counter></button-counter>
+	  <button-counter></button-counter>
+	</div>
+	<div id="blog-posts-events-demo">
+	  <div :style="{ fontSize: postFontSize + 'em' }">
+	    <blog-post
+	      v-for="post in posts"
+	      v-bind:key="post.id"
+	      v-bind:post="post"
+	      v-on:enlarge-text="onEnlargeText"	
+	    ></blog-post>
+	  </div>
+	</div>
+	<div id="app-12">
+		<custom-input v-model="searchText">
+			
+		</custom-input>
+	</div>
+	<div id="app-13">
+		<alert-box
+		></alert-box>
+	</div>
+	<div id="dynamic-component-demo">
+		<tab-home></tab-home>
+		<tab-posts></tab-posts>
+		<tab-archive></tab-archive>
+	</div>
+	<script>
+		Vue.component('tab-home', { template: '<div>Home component</div>' })
+		Vue.component('tab-posts', { template: '<div>Posts component</div>' })
+		Vue.component('tab-archive', { template: '<div>Archive component</div>' })
+		new Vue({
+		  el: '#dynamic-component-demo',
+		  data: {
+		    currentTab: 'Home',
+		    tabs: ['Home', 'Posts', 'Archive']
+		  },
+		  computed: {
+		    currentTabComponent: function () {
+		      return 'tab-' + this.currentTab.toLowerCase()
+		    }
+		  }
+		})
+		Vue.component('alert-box', {
+		  template: `
+		    <div class="demo-alert-box">
+		      <strong>Error!</strong>
+		      <slot>Something bad happend</slot>
+		    </div>
+		  `
+		})
+		new Vue({
+			el:"#app-13"
+		})
+		Vue.component('custom-input', {
+		  props: ['value'],
+		  template: `
+		    <input
+		      v-bind:value="value"
+		      v-on:input="$emit('input', $event.target.value)"
+		    >
+		  `
+		})
+	    new Vue({
+	    	el:"#app-12",
+	    	data:function(){
+	    		return {searchText:"123"}
+	    	}
+	    })
+		Vue.component('blog-post', {
+		  props: ['post'],
+		  template: `
+		    <div class="blog-post">
+		      <h3>{{ post.title }}</h3>
+		      <button v-on:click="$emit('enlarge-text',0.1)">
+		        Enlarge text
+		      </button>
+		      <div v-html="post.content"></div>
+		    </div>
+		  `
+		})
+		new Vue({
+			el:"#blog-posts-events-demo",
+			data:{
+				posts:[
+					{id:"1",title:"jia",content:"jiaxihao"},
+					{id:"2",title:"xi",content:"jiaxihao"},
+					{id:"3",title:"hao",content:"jiaxihao"}
+				],
+				postFontSize:1
+			},
+			methods: {
+					onEnlargeText: function (enlargeAmount) {
+				  	this.postFontSize += enlargeAmount
+				}
+			}			
+			
+		})
+		Vue.component('button-counter', {
+		  data: function () {
+		    return {
+		      count: 0
+		    }
+		  },
+		  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+		})
+		new Vue({
+			el:".components-demo"
+		})
+		
+		new Vue({
+			el:"#app-11",
+			data:{
+				selected:"A",
+				options:[
+					{text:"one",value:"A"},
+					{text:"two",value:"B"},
+					{text:"three",value:"C"}
+				]
+			}
+		})
+		new Vue({
+			el:"#example-6",
+			data:{
+				selected:[]
+			}
+		})
+		new Vue({
+			el:"#example-5",
+			data:{
+				selected:""
+			}
+		})
+		new Vue({
+		  el: '#example-4',
+		  data: {
+		    picked: ''
+		  }
+		})
+		var app10 = new Vue({
+			el:"#example-3",
+			data:{
+				checkedNames:[
+
+				]
+			}
+		})
+		Vue.component('todo-item1', {
+		  props: ['todo1'],
+		  template: '<li>{{ todo1.text }}</li>'
+		});
+		var app8 = new Vue({
+		  el: '#app-8',
+		  data: {
+		    groceryList: [
+		      { id: 0, text: '蔬菜1' },
+		      { id: 1, text: '奶酪2' },
+		      { id: 2, text: '随便其它什么人吃的东西3' },
+		      {  text: '随便其它什么人吃的东西4' }
+		    ]
+		  }
+		})
+		app8.groceryList.push({id:3,text:'222'});
+		var app9 = new Vue({
+			el:"#app-9",
+			data:{
+				message:'',
+				checked:false
+			}
+		})
+	</script>
+	<script>
+		Vue.component('todo-item', {
+		  template: '\
+		    <li>\
+		      {{ title }}\
+		      <button v-on:click="$emit(\'remove\')">Remove</button>\
+		    </li>\
+		  ',
+		  props: ['title']
+		})
+
+		new Vue({
+		  el: '#todo-list-example',
+		  data: {
+		    newTodoText: '',
+		    todos: [
+		      {
+		        id: 1,
+		        title: 'Do the dishes',
+		      },
+		      {
+		        id: 2,
+		        title: 'Take out the trash',
+		      },
+		      {
+		        id: 3,
+		        title: 'Mow the lawn'
+		      }
+		    ],
+		    nextTodoId: 4
+		  },
+		  methods: {
+		    addNewTodo: function () {
+		      this.todos.push({
+		        id: this.nextTodoId++,
+		        title: this.newTodoText
+		      })
+		      this.newTodoText = ''
+		    }
+		  }
+		})
+	</script>
+</body>
+</html>

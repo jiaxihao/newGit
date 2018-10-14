@@ -1,0 +1,171 @@
+*{
+			margin:0;
+			padding: 0;
+		}
+		html{
+			height: 100%;
+		}
+		body{
+			height: 100%;
+			width:100%;
+			background-color: cyan;
+		}
+		.entertainment_content{
+			width: 860px;
+			margin:120px auto;
+			background-color: rgba(255,255,255,0.5);
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+			flex-direction: column;
+		}
+		.enter_headline{
+			height:40px;
+			width: 100%;
+			background-color: white;
+			box-shadow: 0 0 10px rgba(0,0,0,0.5);
+		}
+		.enter_count{
+			padding-left: 42px;
+			display: inline-block;
+			margin-left: 20px;
+			line-height: 40px;
+			font-size: 15px;
+			background-size:36px 32px;
+			background-repeat: no-repeat;
+			background-position: 1px;
+			background-attachment: scroll;
+		}
+		.enter_count>span{
+			color:#ff6700;
+			padding:0 5px;
+		}
+		.enter_content{
+			_height:1000px;
+			width: 100%;
+		}
+		.enter_footer{
+			margin-top: 30px;
+			height:40px;
+			width:100%;
+			background-color: rgba(0,0,0,0.2);
+		}
+		.enter_content_ul{
+			list-style: none;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: flex-start;
+			height:100%;
+			flex-wrap: wrap;
+		}
+		.enter_li{
+			display: inline-block;
+			height:300px;
+			width:100%;
+			box-shadow: 0 0 10px gray;
+			margin-top:30px;
+			background-color: rgba(255,255,255,.5);
+			overflow: hidden;
+			position: relative;
+			user-select: none;
+		}
+		.enter_li:hover{
+			box-shadow: 0 0 10px white;
+		}
+		.enter_li_content{
+			height:100%;
+			width: 100%;
+			background-color: rgba(255,255,255,.8);
+			overflow: hidden;
+			background: url('../imgs/bg_3.jpg') center no-repeat;
+			background-size: 100% 100%;
+			box-shadow: inset 0 0 20px black;
+			transition-duration: 0.5s;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.enter_li_content>div{
+			margin-top: -30px;
+			background-color:rgba(255,255,255,0.5);
+			padding-left: 30px;
+			padding-right: 10px;
+			height:30px;
+			line-height: 30px;
+			color:#ff6700;
+			cursor:pointer;
+			float: right;
+			margin-left: 10px;
+			background-size: 20px;
+			background-position: 5px;
+			transition:background 0.1s;
+			box-shadow: 0 0 10px gray;
+			user-select: none;
+		}
+		.enter_li_like:hover{
+			box-shadow: 0 0 10px #ff6700;
+		}
+		.enter_li_like:active{
+			background-color:rgba(255,103,0,0.5);
+		}
+		.enter_li_zan{
+			background: url("../icons/zan.png") left no-repeat;
+		}
+		.enter_li_cai{
+			background: url("../icons/cai.png") left no-repeat;
+		}
+		.enter_li_content:hover{
+			box-shadow: inset 0 0 40px black;
+			background-size: 120% 120%;
+		}
+		.enter_li_content:hover .enter_li_like{
+			margin-top: 0;
+		}
+		.enter_li_footer{
+			width: 100%;
+			height:40px;
+			box-sizing: border-box;
+			padding: 10px 20px;
+			background-color: white;
+			box-shadow: 0 0 20px black;
+			position: absolute;
+			transition-duration: 0.2s;
+			left:0;
+			bottom: 0;
+		}
+		.enter_li_footer:hover{
+			height:150px;
+		}
+		.enter_li_footer:hover .enter_name{
+			margin-left: 10px;
+			cursor: pointer;
+			color:#ff6700;
+		}
+		.enter_name{
+			font-weight: bold;
+			color:gray;
+		}
+		.enter_name span{
+			transition-duration: 0.5s;
+		}
+		.enter_name span:hover{
+			margin-left: 10px;
+			cursor: pointer;
+			color:#ff6700;
+
+		}
+		.enter_detail{
+			height:28px;
+			line-height: 28px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			text-indent: 2em;
+			font-size: 12px;
+			transition-duration: 0.2s;
+		}
+		.enter_li_footer:hover .enter_detail{
+			overflow: unset;
+			text-overflow: unset;
+			white-space: unset;
+		}

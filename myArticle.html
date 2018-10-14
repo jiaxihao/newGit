@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文章</title>
+	<link rel="stylesheet" type="text/css" href="css/hello2.css">
+	<link rel="stylesheet" type="text/css" href="css/headline.css">
+	<link rel="stylesheet" type="text/css" href="css/common2.css">
+	<link rel="stylesheet" type="text/css" href="css/myArticle.css">
+	<script type="text/javascript" src="js/jQuery.main.js"></script>
+	<script type="text/javascript" src="js/headline.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="js/myArticle.js"></script>
+	
+</head>
+<body>
+	<div class='showArticle'>
+		<div class='articleOptions'>
+			<div class='article_options_hoder'>
+				<span class='article_options' style='width:70px;height:20px;background-image:url(icons/close_article.png)'></span>
+			</div>
+		</div>
+		<span class='articleTitle'>这里是标题这里是标题这里是标题这里是标题这里是标题</span>
+		<div style='left:5px;' class='undertitle'>这里是时间</div><div style='right:10px;' class='undertitle'>阅读数<span>0</span></div>
+		<div class='articleContent'>
+		</div>
+		<div class='articleAuthor'><span>作者:</span><div><img src='icons/icon_5.jpg' alt='User_icon'><span class='AuthorName'>---</span></div></div>
+		<div class='articleAdvice'><span>评论区</span>
+			<input type='hidden' value='0'>
+			<input type='hidden' value='3'>
+			<ul>
+				<li class='Advices'>
+					<input type='hidden' value=''>
+					<div class='advicer_icon'><img src='icons/icon_5.jpg' alt=''></div>
+					<div class='advicer_info'>
+						<span  style='cursor:pointer'>Name</span>
+						<span>Time</span>
+						<span>Address</span>
+						<span id='' style='color:black;text-decoration: underline;cursor: pointer'>回复TA</span>
+					</div><br><br>
+					<div class='advice_content'>
+						测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论
+					</div>
+					<div class='Advice_reply_holder'>
+						<ul class='Advice_reply'>
+							<input type='hidden' value='0'>
+							<input type='hidden' value='3'>
+							<li class='advice_replys'>
+								<input type='hidden' value=''>
+								<div class='replyer_icon'><img src='icons/icon_5.jpg' alt=''></div>
+								<div class='replyer_info'>
+									<span  style='cursor:pointer'>Name</span>
+									<span>Time</span>
+									<span>Detil</span>
+									<span id='' style='color:black;text-decoration: underline;cursor: pointer'>回复TA</span>
+								</div><br><br>
+								<div class='replyer_content'>
+									测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论测试评论
+								</div>
+							</li>
+						</ul>
+						<div class='Advice_reply_option'><span>展开回复</span></div>
+					</div>
+					<span class='Advicelevel'>#<span>1</span></span>
+				</li>
+				<div class='Advice_option'><span>展开评论</span><img src="" alt=""></div>
+			</ul>
+		</div>
+	</div>
+	<img src="imgs/bg_7.jpg" id="backgroundImg">
+	<div class="mainFrame">
+		<div class="content">
+			<div class="back_content"></div>
+			<div class="headline">
+			<div id="main_cover"></div>
+				<div id="dialog">
+					<div id="login_button" class="dialog_button_top" title="login">用户登录</div>
+					<div id="register_button" class="dialog_button_top" title="register">用户注册</div>
+					<div id="login_dialog" class="dialogs">
+						<form action="" id="login_form" method="post">
+							<div><span><input type="text" required="true" placeholder="用户名" name="User_id" id="login_userid"></span></div>
+							<em type="text" class="diyerror">用户名不存在</em>
+							<div><span><input type="password" required="true" placeholder="密码" name="User_pw" id="login_userpw"></span></div>
+							<em type="text" class="diyerror">密码错误</em>
+							<div class="dialog_button"><input class="dialog_submit_button" type="submit" value="登录" id="loginsubmit">
+							<input class="dialog_quit_button" type="button" value="取消"></div>
+						</form>
+					</div>
+					<div id="register_dialog" class="dialogs">
+						<form action="" id="register_form" method="post">
+							<div><span><input type="text" required="true" placeholder="用户名" name="User_id" id="register_userid"  style="ime-mode:disabled"></span></div>
+							<em type="text" class="diyerror">用户名已存在</em>
+							<div><span><input type="text" placeholder="昵称" name="User_name" id="register_username"></span></div>
+							<div><span><input type="text" placeholder="签名（非必填）" maxlength="50" name="User_sign" id="register_usersign"></span></div>
+							<div><span><input type="password" required="true" placeholder="密码" name="User_pw" id="register_userpw"></span></div>
+							<div><span><input type="password" required="true" placeholder="重复密码" name="re_User_pw" id="register_reuserpw"></span></div>
+							<div class="dialog_button"><input class="dialog_submit_button" type="submit" value="注册" id="registersubmit"><input class="dialog_quit_button" type="button" value="取消"></div>
+						</form>
+					</div>
+					
+					<div id="upadtepw_dialog" class="dialogs">
+						<div class="dialog_button_select">修改密码</div>
+						<form action="" id="updatepw_form" method="post">
+							<div><span><input type="text" required="true" placeholder="旧密码" name="User_pw" id="updatepw_userpw"></span></div>
+							<em type="text" class="diyerror">旧密码不正确</em>
+							<div><span><input type="password" required="true" placeholder="新密码" name="newUser_pw" id="updatepw_newuserpw"></span></div>
+							<div><span><input type="password" required="true" placeholder="重复新密码" name="re_newUser_pw" id="updatepw_renewuserpw"></span></div>
+							<div class="dialog_button"><input class="dialog_submit_button" type="submit" value="确认修改" id="updatepwsubmit"><input class="dialog_quit_button" type="button" value="取消"></div>
+						</form>
+					</div>
+					<div id="signout_dialog" class="dialogs">
+						<div class="dialog_button_select">确定注销吗？</div>
+						<form action="" id="signout_form" method="post">
+							<div class="dialog_button"><input class="dialog_submit_button" type="submit" value="确认" id="signoutsubmit"><input class="dialog_quit_button" type="button" value="取消"></div>
+						</form>
+					</div>
+				</div>
+				<div id="success">
+					<span id="success_headline">登陆成功</span>
+				</div>
+				<div class="container">
+					<div id="Userinfo">
+						<div id="Userinfo_icon">
+							<img src="icons/icon_9.jpg" alt="">
+						</div>
+						<div id="Userinfo_option">
+							<span><div id="login" title="login" class="options">登录</div><div id="register" title="register" class="options">注册</div></span>
+							<div id="infos_dialog">
+								<div id="signout" class="infos_options">注销</div>
+								<div id="updatepw" class="infos_options">修改密码</div><br/>
+								<div id="User_id_show" class="show"></div>
+								<div id="User_createTime_show" class="show"></div>
+								<div id="User_sign_show" class="show"></div>
+							</div>
+						</div>
+					</div>
+					<ul>
+						<li id="special_li"><span></span></li>
+						<li id="selected_li"><span></span></li>
+						<li><a href="<%=basePath%>/hello.do">
+								<h1>首页</h1>
+							</a></li><li><a href="<%=basePath%>/myArticle.do">
+								<h1>文章</h1>
+							</a></li><li><a href="<%=basePath%>/part3.do">
+								<h1>版块3</h1>
+							</a></li><li><a href="<%=basePath%>/part4.do">
+								<h1>版块4</h1>
+							</a></li><li><a href="<%=basePath%>/part5.do">
+								<h1>版块5</h1>
+							</a></li><li><a href="<%=basePath%>/chatRoom.do">
+								<h1>聊天室</h1>
+							</a></li><li><a href="<%=basePath%>/messageArea.do">
+								<h1>留言</h1>
+							</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class='messages'>
+				<div class='message_border'>
+					<div class='left'>
+						<div id='index_title'>
+							<img src="imgs/messages.jpg" alt="" id="leftimg">
+							<div class="leftdiv" id="messagecount">目前有<span></span>篇文章</div>
+							<div id="index_title_right">
+								
+							</div>
+						</div>
+						<ul id="message_main_content">
+							<li class='articles'>
+								<div class='a_left'><span></span></div>
+								<div class='a_right'>
+								<div class='a_top'><span><p>这是第一篇测试文章的标题</p></span></div>
+									<div class='a_bottom'>
+										<span>本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本填充文本</span>
+										</div>
+								</div>
+								<div class='a_details'>
+									<div title='作者' class='a_author'>贾喜皓</div>
+									<div title='阅读数' class='a_views'>阅读(0)</div>
+									<div title='评论数' class='a_advices'>评论(0)</div>
+								</div>
+							</li>
+						</ul>
+							<div id="pageholder">
+							<input type="button" value="加载更多" id="downpage">
+							</div>
+					</div>
+					<div class="right">
+						<div id="right_index_title">
+							<img src="imgs/aboutmeicon.jpg" alt="">
+							<div>关于我<span> About Me</span></div>
+						</div>
+						<div id="right_admin_div">
+							<img src="icons/icon_5.jpg" alt="" id="admin_icon" title="点击查看">
+							<div id="admin_sign">困难算什么，一往无前才是最重要的</div>
+							<div id="websit_info">
+								<div id="websit_total">
+									<span class="info_headline">运行天数</span>
+									<span id="websit_total_holder" class="info_holder">---</span>
+								</div>
+								<div id="websit_today">
+									<span class="info_headline">访客总数</span>
+									<span id="websit_today_holder" class="info_holder">---</span>
+								</div>
+								<div id="websit_userCount">
+									<span class="info_headline">用户总数</span>
+									<span id="websit_userCount_holder" class="info_holder">---</span>
+								</div>
+							</div>
+							<div id="weather">
+								<iframe src="http://i.tianqi.com/index.php?c=code&id=10&icon=1&num=5" frameborder="0"></iframe>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>

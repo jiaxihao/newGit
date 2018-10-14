@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/vue_main.js"></script>
+</head>
+<body>
+	<script>
+		Vue.component('test-com',{
+			data(){
+				return{
+
+				}
+			},
+			template:'<a\
+  v-bind:href="url"\
+  class="nav-link"\
+>\
+  <slot></slot>\
+</a>'
+		})
+	</script>
+	
+</body>
+</html>

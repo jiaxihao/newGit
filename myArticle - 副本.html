@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>留言区</title>
+	<link rel="stylesheet" type="text/css" href="css/hello2.css">
+	<link rel="stylesheet" href="css/messageArea.css">
+	<link rel="stylesheet" href="css/headline.css">
+	<link rel="stylesheet" href="css/common2.css">
+	<script type="text/javascript" src="js/jQuery.main.js"></script>
+	<script type="text/javascript" src="js/headline.js"></script>
+</head>
+<body>
+	<div id="titles"></div>
+	<img src="imgs/bg_8.jpg" id="backgroundImg">
+	<div class="mainFrame">
+		<div class="content">
+			<div class="back_content"></div>
+			
+				<div class="headline">
+				<div class="container">
+					<ul>
+						<li id="special_li"><span></span></li>
+						<li id="selected_li"><span></span></li>
+						<li><a href="hello.html">
+								<h1>首页</h1>
+							</a></li><li><a href="">
+								<h1>版块2</h1>
+							</a></li><li><a href="">
+								<h1>版块3</h1>
+							</a></li><li><a href="">
+								<h1>版块4</h1>
+							</a></li><li><a href="">
+								<h1>版块5</h1>
+							</a></li><li><a href="">
+								<h1>版块6</h1>
+							</a></li><li><a href="messageArea.html">
+								<h1 style="font-size: 23px;color: #ff6700;">留言</h1>
+							</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="messages">
+				<div class="message_border">
+					<div class="left">
+						<div id="index_title">
+							<img src="imgs/messages.jpg" alt="" id="leftimg">
+							<div class="leftdiv">目前有<span>${messages}</span>条留言</div>
+							<div id="index_title_right">
+								<img src="imgs/message_icon.png" alt=" " id="rightimg">
+								<a href="#message_inputer">我也要留言</a>
+							</div>
+						</div>
+						<ul id="message_main_content">
+							
+						</ul>
+						<div id="pageholder">
+							<input type="button" value="下一页" id="downpage">
+						</div>
+						
+					</div>
+					<div class="right">
+						<div id="right_index_title">
+							<img src="imgs/aboutmeicon.jpg" alt="">
+							<div>关于我<span> About Me</span></div>
+						</div>
+						<div id="right_admin_div">
+							<img src="imgs/bg_5.jpg" alt="" id="admin_icon" title="点击查看">
+							<div id="admin_sign">困难算什么，一往无前才是最重要的</div>
+							<div id="websit_info">
+								<div id="websit_total">
+									<span class="info_headline">运行天数</span>
+									<span id="websit_total_hoder" class="info_holder">1</span>
+								</div>
+								<div id="websit_today">
+									<span class="info_headline">今日访客</span>
+									<span id="websit_today_hoder" class="info_holder">2</span>
+								</div>
+								<div id="websit_today">
+									<span class="info_headline">昨日访客</span>
+									<span id="websit_today_hoder" class="info_holder">2</span>
+								</div>
+							</div>
+							<div id="weather">
+								<iframe src="http://i.tianqi.com/index.php?c=code&id=10&icon=1&num=5" frameborder="0"></iframe>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script>
+    function secondToDate(second) {
+        if (!second) {
+            return 0;
+        }
+        var time = new Array(0);
+        if (second >= 24 * 3600) {
+            time[0] = parseInt(second / (24 * 3600));
+            second %= 24 * 3600;
+        }
+        return time;
+    }
+</script>
+<script type="text/javascript" language="javascript">
+    function setTime() {
+        // 博客创建时间秒数，时间格式中，月比较特殊，是从0开始的，所以想要显示5月，得写4才行，如下
+        var create_time = Math.round(new Date(Date.UTC(2013, 4, 22, 0, 0, 0))
+                .getTime() / 1000);
+        // 当前时间秒数,增加时区的差异
+        var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+        currentTime = secondToDate((timestamp - create_time));
+        currentTimeHtml = currentTime[0] + '天';
+        document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+    }
+    setInterval(setTime, 1000);
+</script>
+<span id="htmer_time" style="color: red;"></span>
+</body>
+</html>
